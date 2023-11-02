@@ -2,4 +2,8 @@ venv
 .idea
 .ipynb_checkpoints
 
+.jpeg
+.bmp
+.png
+
 logacalTable.ipynb

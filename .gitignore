@@ -1,9 +1,14 @@
+# Python
 venv
+
+# IDE
 .idea
 .ipynb_checkpoints
 
+# Media resources
 .jpeg
 .bmp
 .png
 
+# Jupyter
 logacalTable.ipynb

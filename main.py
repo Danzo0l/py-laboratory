@@ -1,5 +1,5 @@
 # main file
-from eMTC.define_functions import Zr
+from mMTC.define_functions import Zr
 
 
 def main():

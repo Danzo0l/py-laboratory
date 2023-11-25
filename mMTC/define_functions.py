@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import math
 import numpy as np
 from typing import TypeVar
@@ -27,3 +28,17 @@ def Zpr(p: int, r: int, n: np.ndarray) -> np.ndarray[complex]:
     """
 
     return np.exp(0 - 1j * ((math.pi * r * n * (n + 1)) / n_zc))
+=======
+import cmath
+import math
+
+
+def Zr(n):
+    """
+    Function Zr(n): doc/Functions.md:3
+    :param n: float:
+    :return :
+    """
+    a = -(math.pi)
+    return cmath.exp(math.pi)
+>>>>>>> ab779599bf45fae6ca3ee4c40dcefb63b22315ca

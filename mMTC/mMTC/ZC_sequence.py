@@ -1,9 +1,8 @@
 import numpy as np
 
 
-def Z_r(r: int, n_zc: int) -> np.ndarray[complex]:
+def zc_sequence(r: int, n_zc: int) -> np.ndarray[complex]:
     """
-
     `Expression (1)`
     :param r: root index
     :param n_zc: max index {0, ..., N_ZC - 1}
@@ -14,7 +13,7 @@ def Z_r(r: int, n_zc: int) -> np.ndarray[complex]:
     return np.exp(-1j * np.pi * r * n_values * (n_values + 1) / n_zc)
 
 
-def Z_p_r(p: int, zr: np.ndarray) -> np.ndarray[complex]:
+def zc_shift(p: int, zr: np.ndarray) -> np.ndarray[complex]:
     """
     Zadoff-Chu sequence cyclic shift
     `Expression (2)`
@@ -24,3 +23,13 @@ def Z_p_r(p: int, zr: np.ndarray) -> np.ndarray[complex]:
     :return: np.array(complex): Array of complex numbers
     """
     return np.roll(zr, p)
+
+
+def auto_correlation(z_pr: np.ndarray, z_r: np.ndarray, tao: int) -> float:
+    """
+    Cyclic auto-correlation
+    :param z_pr: Shifted Zadoff-Chu sequence
+    :param z_r: Zadoff-Chu sequence
+    :return:
+    """
+    return 1/(len(z_pr)) * sum(z_pr * np.conj(np.roll(z_r, tao))).real

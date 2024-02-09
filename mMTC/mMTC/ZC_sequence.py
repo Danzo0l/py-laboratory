@@ -27,9 +27,10 @@ def zc_shift(p: int, zr: np.ndarray) -> np.ndarray[complex]:
 
 def auto_correlation(z_pr: np.ndarray, z_r: np.ndarray, tao: int) -> float:
     """
-    Cyclic auto-correlation
+    Cyclic cross-correlation
     :param z_pr: Shifted Zadoff-Chu sequence
     :param z_r: Zadoff-Chu sequence
+    :param tao: Shift of ZC sequence
     :return:
     """
-    return 1/(len(z_pr)) * sum(z_pr * np.conj(np.roll(z_r, tao))).real
+    return sum(z_pr * np.conj(np.roll(z_r, tao)))

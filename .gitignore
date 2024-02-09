@@ -1,14 +1,16 @@
 # Python
 venv
+__pycache__
 
 # IDE
 .idea
 .ipynb_checkpoints
 
 # Media resources
-.jpeg
-.bmp
-.png
+*.jpeg
+*.bmp
+*.png
+*.pyc
 
 # mMTC
 logacalTable.ipynb

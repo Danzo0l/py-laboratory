@@ -13,7 +13,7 @@ def zc_sequence(r: int, n_zc: int) -> np.ndarray[complex]:
     return np.exp(-1j * np.pi * r * n_values * (n_values + 1) / n_zc)
 
 
-def zc_shift(p: int, zr: np.ndarray) -> np.ndarray[complex]:
+def zc_shift(zr: np.ndarray, p: int) -> np.ndarray[complex]:
     """
     Zadoff-Chu sequence cyclic shift
     `Expression (2)`
@@ -25,12 +25,37 @@ def zc_shift(p: int, zr: np.ndarray) -> np.ndarray[complex]:
     return np.roll(zr, p)
 
 
-def auto_correlation(z_pr: np.ndarray, z_r: np.ndarray, tao: int) -> float:
+def discrete_fourier_transform(sequence: np.ndarray, length: int) -> np.ndarray[complex]:
     """
-    Cyclic cross-correlation
-    :param z_pr: Shifted Zadoff-Chu sequence
-    :param z_r: Zadoff-Chu sequence
-    :param tao: Shift of ZC sequence
+    Discrete Fourier Transform
+    :param sequence: ZC-sequence
+    :param length: sequence length
+    :return: np.array(complex): Array of complex numbers
+    """
+    result = np.zeros(length, dtype=complex)
+
+    for k in range(length):
+        for n in range(length):
+            result[k] += sequence[n] * np.exp(-2j * np.pi * k * n / length)
+
+    return result
+
+
+def cyclic_auto_correlation(zc: np.ndarray, zc_shifted: np.ndarray) -> float:
+    """
+    Correlation
+    :param zc_shifted: Shifted Zadoff-Chu sequence
+    :param zc: Zadoff-Chu sequence
     :return:
     """
-    return sum(z_pr * np.conj(np.roll(z_r, tao)))
+    return sum(np.conj(zc) * zc_shifted)
+
+
+def cyclic_correlation(zc: np.ndarray, zc_shifted: np.ndarray) -> float:
+    """
+    Correlation
+    :param zc_shifted: Shifted Zadoff-Chu sequence
+    :param zc: Zadoff-Chu sequence
+    :return:
+    """
+    return sum(np.conj(zc) * zc_shifted)

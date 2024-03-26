@@ -36,8 +36,7 @@ def discrete_fourier_transform(sequence: np.ndarray, length: int) -> np.ndarray[
 
     for k in range(length):
         for n in range(length):
-            result[k] += sequence[n] * np.exp(-2j * np.pi * k * n / length)
-
+            result[k] += 1 / length * (sequence[n] * np.exp(-2j * np.pi * k * n / length))
     return result
 
 

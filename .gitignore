@@ -1,0 +1,23 @@
+# Python
+venv
+.venv
+__pycache__
+
+# IDE
+.idea
+.ipynb_checkpoints
+
+# Media resources
+*.jpeg
+*.bmp
+*.png
+*.pyc
+
+# Build
+*.c
+*.cpp
+*.zip
+build
+
+# mMTC
+logacalTable.ipynb

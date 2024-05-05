@@ -2,16 +2,15 @@
 venv
 .venv
 __pycache__
+*.pyc
+.ipynb_checkpoints
 
 # IDE
 .idea
-.ipynb_checkpoints
+.vscode
 
 # Media resources
-*.jpeg
 *.bmp
-*.png
-*.pyc
 
 # Build
 *.c
